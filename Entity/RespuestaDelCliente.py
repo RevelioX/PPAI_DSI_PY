@@ -9,14 +9,14 @@ class RespuestaDelCliente:
     def getDescripcionRta(self):
         return self._respuestaPosible.getDescripcion()
 
-    def get_fechaEncuesta(self):
+    def getFechaEncuesta(self):
         return self._fechaEncuesta
 
-    def set_fechaEncuesta(self, fechaEncuesta):
+    def setFechaEncuesta(self, fechaEncuesta):
         self._fechaEncuesta = fechaEncuesta
 
-    def get_respuestaPosible(self):
+    def getRespuestaPosible(self):
         return self._respuestaPosible
 
-    def set_respuestaPosible(self, respuestaPosible):
+    def setRespuestaPosible(self, respuestaPosible):
         self._respuestaPosible = respuestaPosible
