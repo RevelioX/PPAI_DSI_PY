@@ -2,9 +2,9 @@ import datetime
 
 class RespuestaDelCliente:
 
-    def __init__(self, fechaEncuesta, respuestaPosible):
+    def __init__(self, fechaEncuesta, respuestaSeleccionada):
         self._fechaEncuesta = fechaEncuesta
-        self._respuestaPosible = respuestaPosible
+        self._respuestaSeleccionada = respuestaSeleccionada
 
     def getDescripcionRta(self):
         return self._respuestaPosible.getDescripcion()

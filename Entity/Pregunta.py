@@ -1,6 +1,6 @@
 class Pregunta:
 
-    def __init__(self,pregunta,respuestasPosibles):
+    def __init__(self,pregunta,respuestasPosible):
 
         self._pregunta = pregunta
         self._respuestasPosibles = respuestasPosibles
