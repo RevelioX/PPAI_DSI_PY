@@ -3,7 +3,7 @@ class Pregunta:
     def __init__(self,pregunta,respuestasPosible):
 
         self._pregunta = pregunta
-        self._respuestasPosibles = respuestasPosibles
+        self._respuestasPosibles = respuestasPosible
 
 
     def listarRespuestasPosibles(self):
