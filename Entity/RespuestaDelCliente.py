@@ -20,3 +20,6 @@ class RespuestaDelCliente:
 
     def setRespuestaPosible(self, respuestaPosible):
         self._respuestaPosible = respuestaPosible
+
+    def mostrarDatosRTA(self):
+        return self._respuestaSeleccionada.mostrarDatos()

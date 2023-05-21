@@ -15,3 +15,6 @@ class RespuestaPosible:
 
     def setValor(self,valor):
         self._valor = valor
+
+    def mostrarDatos(self):
+        return (self.getDescripcion(), self.getValor())

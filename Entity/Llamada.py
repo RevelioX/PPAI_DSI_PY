@@ -30,9 +30,11 @@ class Llamada:
     def mostrarDatos(self):
         nombreCliente = self._cliente.mostrarNombre()
         for cambioEstado in self._cambioEstado:
-            if (cambioEstado.esActivo()):  # todo Arreglar el tema de que cambioEstado no sabe cual es el Activo
-                # todo En el Diagrama de Secuencia cambiar el nombre de 'obtenerEstadoActivo()' a 'esActivo()'
+            if (cambioEstado.esActivo()):  # todo Corregir algo en el Cambio Estado.!
                 estado = cambioEstado.getNombre()
+        duración = self.getDuracion()
+        respuestasDeEncuesta = self._respuestasDeEncuesta.mostrarDatosRTA()
+        encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
 
     def getDuracion(self):
         return self._duracion
