@@ -32,5 +32,9 @@ class ControladorConsultarEncuesta:
         self._pantallaConsultarEncuesta.mostrarLlamadas(llamadasFiltradas)
 
 
-    def llamadaSeleccion(self, llamada):
+    def llamadaSeleccion(self,llamada):
         return llamada.mostrarDatos()
+
+    def generarCSV(self):
+        pass
+
