@@ -21,12 +21,11 @@ class Llamada:
         self._subOpcionSeleccionada = []
         self._opcionSeleccionada = []
 
-    def verificarPeriodoYExistenciaDeRespuestas(self, fechaInicio, fechaFin):  # todo Cambie el nombre del Metodo
-        return (self._cambioEstado[0].esDelPeriodo(fechaInicio, fechaFin) and len(self._respuestasDeEncuesta) > 0)
+    def verificarPeriodo(self, fechaInicio, fechaFin):  # todo
+        return self._cambioEstado[0].esDelPeriodo(fechaInicio, fechaFin)
 
-    # todo |No estoy implementando el 'tomarRespuesta()' creo que lo entendimos mal, ya que no tiene que mostrar las respuestas, sino
-    # todo |que simplemente validar que haya, entonces haria falta un metodo para eso?? Creo que simplemente con verificar que
-    # todo |nuestro array sea mayor a 0 sirve, tal vez haya que corregir el Diagrama de Secuencia.
+    def verificarExistenciaDeRespuestas(self):
+        return len(self._respuestasDeEncuesta) > 0
 
     def mostrarDatos(self):
         nombreCliente = self._cliente.mostrarNombre()
