@@ -32,11 +32,17 @@ class RespuestaPosible:
 
     def buscarPregunta(self):
         preguntasAleatorias = Pregunta.generarPreguntasAleatorias(3)
+        print(preguntasAleatorias)
         for i in preguntasAleatorias:
             if self._descripcion in i.listarRespuestasPosibles():
                 return i
 
-def obtenerRespuesta():
+
+def obtenerRespuestaCliente():
     descripcionesGenerales = ['1 al 10', 'Si/No']
     valoresGenerales = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    return random.choice(valoresGenerales)
+
+    valor = random.choice(valoresGenerales)
+
+    respuesta = RespuestaPosible(descripcionesGenerales, valor)
+    return respuesta

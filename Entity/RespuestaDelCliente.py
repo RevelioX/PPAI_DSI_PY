@@ -43,7 +43,7 @@ def respuesEncuesta():
             anio_aleatorio = random.randint(2000, 2023)
             mes_aleatorio = random.randint(1, 12)
             dia_aleatorio = random.randint(1, 29)
-            respuesta = RespuestaPosible.obtenerRespuesta()
+            respuesta = RespuestaPosible.obtenerRespuestaCliente()
             fechaRandom = datetime(anio_aleatorio, mes_aleatorio, dia_aleatorio)
             respuestasV.append(RespuestaDelCliente(fechaRandom, respuesta))
     return respuestasV
