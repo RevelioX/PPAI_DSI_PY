@@ -1,5 +1,6 @@
 from Entity import RespuestaPosible
 from Entity import Encuesta
+
 class Pregunta:
 
     def __init__(self,pregunta='',respuestasPosible = None):

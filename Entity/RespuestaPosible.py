@@ -33,7 +33,7 @@ class RespuestaPosible:
     def buscarPregunta(self):
         preguntasAleatorias = Pregunta.generarPreguntasAleatorias(3)
         for i in preguntasAleatorias:
-            if self._descripcion in preguntasAleatorias.listarRespuestasPosibles():
+            if self._descripcion in i.listarRespuestasPosibles():
                 return i
 
 def obtenerRespuesta():
