@@ -1,6 +1,6 @@
 from Boundary import pantallaMain
 from Controller import ControladorConsultarEncuesta
-from Entity import Llamada, CambioEstado, Pregunta
+from Entity import Llamada, CambioEstado, Pregunta, Encuesta
 
 
 def main():
@@ -9,7 +9,6 @@ def main():
     pantalla = pantallaMain.PantallaConsultarEncuesta()
     gestor = ControladorConsultarEncuesta.ControladorConsultarEncuesta(2, 3, llamadas,pantalla)
     pantalla.opcionConsultarEncuesta(gestor)
-    #print((Pregunta.generarPreguntasAleatorias(3)[0]).getDescripcion())
 
 
 if __name__ == "__main__":

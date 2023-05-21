@@ -39,8 +39,6 @@ class Llamada:
             datosRTA.append((rta,pgunta,encuesta))
         return(nombre, estado, duracion, datosRTA)
 
-        #encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
-
 
     def getNombreCliente(self):
         return self._cliente

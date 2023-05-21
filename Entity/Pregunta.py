@@ -14,14 +14,13 @@ class Pregunta:
     def listarRespuestasPosibles(self):
         respuestas = []
         for respuestaPosible in self._respuestasPosibles:
-            print(respuestaPosible)
-            respuestas.append( respuestaPosible.getDescripcion() )
+            respuestas.append(respuestaPosible.getDescripcion())
         return respuestas
 
     def buscarEncuesta(self):
         encuestas = Encuesta.generarEncuestaAleatoria()
         for i in encuestas:
-            if self in i.pregunta:
+            if self in i.getPreguntas():
                 return i
 
     def mostrarEncuesta(self):
