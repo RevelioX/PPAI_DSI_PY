@@ -52,39 +52,32 @@ class PantallaConsultarEncuesta:
             elif event_periodo == 'cal_to':
                 window_periodo['date_to'].update(values_periodo['cal_to'].strftime('%Y-%m-%d'), visible=True)
             elif event_periodo == 'Consultar':
-                date_from = values_periodo['date_from']
-                date_to = values_periodo['date_to']
+                date_from =(values_periodo['date_from'].split(" ")[0])
+                date_to = (values_periodo['date_to'].split(" ")[0])
                 self.controlador.tomarPeriodo(date_from,date_to)
 
-#
-#
-#
-# Para mostrar las llamadas Filtradas
-#
-# layout_llamada = [
-#    [sg.Table(values=[[llamada.getNombre(), llamada.getNro()] for llamada in llamadas],
-#              headings=['Nombre', 'Celular', 'DNI'],
-#              auto_size_columns=True,
-#              display_row_numbers=True,
-#              justification='left',
-#              num_rows=10,
-#              key='-TABLE-',
-#              enable_events=True,
-#              select_mode=sg.TABLE_SELECT_MODE_BROWSE)],
-#    [sg.Button('Cerrar')]
-# ]
-#
-# window_llamadas = sg.Window('Lista Llamada''', layout_llamada)
-#
-# while True:
-#                    event, values = window_llamadas.read()
-#                    if event == sg.WINDOW_CLOSED or event == 'Cerrar':
-#                        window_llamadas.close()
-#                        window_periodo.close()
-#                        break
-#                    elif event == '-TABLE-':
-#                        row_index = values['-TABLE-'][0]
-#                        llamada_seleccionada = llamadas[row_index]
-#                        mensaje = (f"Llamada seleccionado: {llamada_seleccionada.getNombre()}")
-#                        sg.popup(mensaje, title='Selección exitosa')
-#                        break
+    def mostrarLlamadas(self, llamadasFiltradas):
+        layout_llamada = [
+           [sg.Table(values=[["Llamada de " + llamada.getNombreCliente().getNombre()] for llamada in llamadasFiltradas],
+                     headings=['Cliente'],
+                     auto_size_columns=True,
+                     display_row_numbers=True,
+                     justification='left',
+                     num_rows=10,
+                     key='-TABLE-',
+                     enable_events=True,
+                     select_mode=sg.TABLE_SELECT_MODE_BROWSE)],
+
+           [sg.Button('Cerrar')]
+        ]
+        window_llamadas = sg.Window('Lista Llamada''', layout_llamada)
+        while True:
+            event, values = window_llamadas.read()
+            if event == sg.WINDOW_CLOSED or event == 'Cerrar':
+                window_llamadas.close()
+                break
+            elif event == '-TABLE-':
+                row_index = values['-TABLE-'][0]
+                llamada_seleccionada = llamadasFiltradas[row_index]
+                mensaje = (f"Llamada seleccionado de: {llamada_seleccionada.getNombreCliente().getNombre()}")
+                sg.popup(mensaje, title='Selección exitosa')

@@ -1,19 +1,19 @@
 import random
 
-from Entity import Cliente
+from Entity import Cliente, CambioEstado, RespuestaDelCliente
 
 
 class Llamada:
 
-    def __init__(self, descripcionOperador, detalleAccionRequerida, duracion, encuestaEnviada, observacionAuditor,
-                 cliente):
+    def __init__(self, descripcionOperador, detalleAccionRequerida, duracion, encuestaEnviada, observacionAuditor,respuestasDeEncuesta,
+                 cliente, cambioEstado):
         self._descripcionOperador = descripcionOperador
         self._detalleAccionRequerida = detalleAccionRequerida
         self._duracion = duracion
         self._encuestaEnviada = encuestaEnviada
         self._observacionAuditor = observacionAuditor
-        self._respuestasDeEncuesta = []
-        self._cambioEstado = []  # todo Recordar Agregar el Primer Cambio de Estado
+        self._respuestasDeEncuesta = respuestasDeEncuesta
+        self._cambioEstado = cambioEstado  # todo Recordar Agregar el Primer Cambio de Estado
         self._accionRequerida = []
         self._cliente = cliente
         self._operador = []
@@ -28,7 +28,7 @@ class Llamada:
         return len(self._respuestasDeEncuesta) > 0
 
     def mostrarDatos(self):
-        nombreCliente = self._cliente.mostrarNombre()
+        nombreCliente = self._cliente.getNombre()
         for cambioEstado in self._cambioEstado:
             if (cambioEstado.esActivo()):  # todo Corregir algo en el Cambio Estado.!
                 estado = cambioEstado.getNombre()
@@ -36,9 +36,11 @@ class Llamada:
         respuestasDeEncuesta = self._respuestasDeEncuesta.mostrarDatosRTA()
         encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
 
+    def getNombreCliente(self):
+        return self._cliente
+
     def getDuracion(self):
         return self._duracion
-
 
 def generarLlamada():
     desc = ['Ofrecimiento de reembolso o crédito para compensar cualquier cargo adicional.',
@@ -54,15 +56,17 @@ def generarLlamada():
 
     accionreq = ['Comunicar saldo.', 'Dar de baja tarjeta.', 'Denunciar un robo.']
     llamada_totales = []
-    for i in range(10):
+    for i in range(20):
         descripcionOperador = random.choice(desc)
         detalleAccionRequerida = random.choice(accionreq)
         duracion = random.randint(1, 20)
         encuestaEnviada = bool(random.getrandbits(1))
         observacionAuditor = random.choice(observaciones_auditor)
-        cliente = Cliente.crearCliente()[0]
+        cliente = random.choice(Cliente.crearCliente())
         cliente.getNombre()
-        individual = Llamada(descripcionOperador, detalleAccionRequerida, duracion, encuestaEnviada, observacionAuditor,
-                             cliente)
+        cambio = CambioEstado.obtenerFechaRandom()
+        respuesta = RespuestaDelCliente.respuesEncuesta()
+        individual = Llamada(descripcionOperador, detalleAccionRequerida, duracion, encuestaEnviada, observacionAuditor,respuesta,
+                             cliente, cambio)
         llamada_totales.append(individual)
     return llamada_totales

@@ -1,3 +1,4 @@
+import random
 class Estado:
 
     def __init__(self, nombre):
@@ -17,3 +18,9 @@ class Estado:
 
     def getNombre(self):
         return self._nombre
+
+def obtenerEstado():
+    arrayEstados = ['Iniciada', 'En Curso', 'Finalizada', 'Cancelada']
+    nombre = random.choice(arrayEstados)
+    estado = Estado(nombre)
+    return estado

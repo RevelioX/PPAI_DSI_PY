@@ -1,3 +1,6 @@
+import random
+
+
 class RespuestaPosible:
 
     def __init__(self,descripcion,valor):
@@ -18,3 +21,9 @@ class RespuestaPosible:
 
     def mostrarDatos(self):
         return (self.getDescripcion(), self.getValor())
+
+
+def obtenerRespuesta():
+    descripcionesGenerales = ['1 al 10', 'Si/No']
+    valoresGenerales = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    return random.choice(valoresGenerales)

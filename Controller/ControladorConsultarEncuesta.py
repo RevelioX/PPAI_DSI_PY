@@ -1,9 +1,14 @@
+from datetime import datetime, time
+
+
 class ControladorConsultarEncuesta:
 
     def __init__(self, fechaInicioPeriodo, fechaFinPeriodo, llamadas, pantallaConsultarEncuesta = None):
         self._pantallaConsultarEncuesta = pantallaConsultarEncuesta
         self._fechaInicioPeriodo = fechaInicioPeriodo
         self._fechaFinPeriodo = fechaFinPeriodo
+        #self._fechaInicio = datetime.combine(datetime.strptime(str(fechaInicioPeriodo), "%Y-%m-%d").date(), time.min)
+        #self._fechaFin = datetime.combine(datetime.strptime(str(fechaFinPeriodo), "%Y-%m-%d").date(), time.max)
         self._llamadas = llamadas
 
     def newEncuesta(self):
@@ -12,7 +17,7 @@ class ControladorConsultarEncuesta:
     def tomarPeriodo(self, fechaInicioPeriodo, fechaFinPeriodo):
         self._fechaInicioPeriodo = fechaInicioPeriodo
         self._fechaFinPeriodo = fechaFinPeriodo
-        #self.filtrarLlamada(fechaInicioPeriodo, fechaFinPeriodo)
+        self.filtrarLlamada(fechaInicioPeriodo, fechaFinPeriodo)
 
         #No entiendo el porque de este metodo, no lo tenemos en el Diagrama de secuencia??? Y para que necesitamor recordar
         #el periodo en el controlador
