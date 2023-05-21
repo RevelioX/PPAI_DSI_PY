@@ -40,9 +40,10 @@ class RespuestaPosible:
 
 def obtenerRespuestaCliente():
     descripcionesGenerales = ['1 al 10', 'Si/No']
-    valoresGenerales = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    descripcion = random.choice(descripcionesGenerales)
 
+    valoresGenerales = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     valor = random.choice(valoresGenerales)
 
-    respuesta = RespuestaPosible(descripcionesGenerales, valor)
+    respuesta = RespuestaPosible(descripcion, valor)
     return respuesta

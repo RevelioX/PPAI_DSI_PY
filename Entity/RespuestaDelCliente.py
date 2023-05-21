@@ -31,6 +31,9 @@ class RespuestaDelCliente:
     def mostrarPregunta(self):
         return self._respuestaSeleccionada.mostrarPregunta()
 
+    def mostrarEncuesta(self):
+        return self._respuestaSeleccionada.mostrarEncuesta()
+
 
 
 
