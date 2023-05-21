@@ -31,8 +31,9 @@ class Llamada:
         self.getNombreCliente().getNombre()
         self._cambioEstado[0].esActivo()
         self.getDuracion()
-        self._respuestasDeEncuesta.mostrarDatosRTA()
+        #self._respuestasDeEncuesta.mostrarDatosRTA()
         #encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
+
 
     def getNombreCliente(self):
         return self._cliente
