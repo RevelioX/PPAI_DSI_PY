@@ -31,7 +31,8 @@ class Llamada:
         self.getNombreCliente().getNombre()
         self._cambioEstado[0].esActivo()
         self.getDuracion()
-        #self._respuestasDeEncuesta.mostrarDatosRTA()
+        for i in self._respuestasDeEncuesta:
+            i.mostrarDatosRTA()
         #encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
 
 
