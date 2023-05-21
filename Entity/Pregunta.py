@@ -13,7 +13,7 @@ class Pregunta:
     def listarRespuestasPosibles(self):
         respuestas = []
         for respuestaPosible in self._respuestasPosibles:
-            respuestas.append( (respuestaPosible.getDescripcion(),respuestaPosible.getValor()) )
+            respuestas.append( respuestaPosible.getDescripcion() )
         return respuestas
 
     def buscarEncuesta(self):
