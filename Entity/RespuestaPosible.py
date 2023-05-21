@@ -1,5 +1,5 @@
 import random
-
+from Entity import Pregunta
 
 class RespuestaPosible:
 
@@ -22,6 +22,19 @@ class RespuestaPosible:
     def mostrarDatos(self):
         return self.getDescripcion()
 
+    def mostrarPregunta(self):
+        pregunta = self.buscarPregunta()
+        return pregunta.getDescripcion()
+
+    def mostrarEncuesta(self):
+        pregunta = self.buscarPregunta() #todo
+        return pregunta.mostrarEncuesta()
+
+    def buscarPregunta(self):
+        preguntasAleatorias = Pregunta.generarPreguntasAleatorias(3)
+        for i in preguntasAleatorias:
+            if self._descripcion in preguntasAleatorias.listarRespuestasPosibles():
+                return i
 
 def obtenerRespuesta():
     descripcionesGenerales = ['1 al 10', 'Si/No']

@@ -15,3 +15,6 @@ class Encuesta:
 
         def getDescripcionEncuesta(self):
             return self._descripcion
+
+        def getPreguntas(self):
+            return self._pregunta

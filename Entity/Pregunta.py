@@ -1,4 +1,5 @@
 from Entity import RespuestaPosible
+from Entity import Encuesta
 class Pregunta:
 
     def __init__(self,pregunta='',respuestasPosible = None):
@@ -16,7 +17,10 @@ class Pregunta:
         return respuestas
 
     def buscarEncuesta(self):
-        pass
+        encuestas = Encuesta.generarEncuestaAleatoria()
+        for i in encuestas:
+            if self in i.pregunta:
+                return i
 
     def mostrarEncuesta(self):
         encuesta = self.buscarEncuesta()

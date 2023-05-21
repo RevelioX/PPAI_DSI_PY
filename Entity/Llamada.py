@@ -36,7 +36,7 @@ class Llamada:
             rta = i.mostrarDatosRTA()
             pgunta = i.mostrarPregunta()
             encuesta = i.mostrarEncuesta()
-            datosRTA.append(rta,pgunta,encuesta)
+            datosRTA.append((rta,pgunta,encuesta))
         return(nombre, estado, duracion, datosRTA)
 
         #encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
