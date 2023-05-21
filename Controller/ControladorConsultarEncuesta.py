@@ -31,5 +31,6 @@ class ControladorConsultarEncuesta:
         #-Asi que voy a llamar a la función en la Interfaz
         self._pantallaConsultarEncuesta.mostrarLlamadas(llamadasFiltradas)
 
-    def llamadaSeleccionada(self, llamada):
-        return llamada.mostrarDatos()
+
+    def tomarLlamadaSele(self, llamada):
+        return llamada.mostrarDatos(llamada)

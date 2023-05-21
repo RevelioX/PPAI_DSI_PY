@@ -19,7 +19,7 @@ class CambioEstado:
             return False
 
     def esActivo(self):
-        return "" #todo No se como implementarlo
+        return self._estado.getNombreEstado()
 
     def getNombre(self):
         return self._estado.getNombre()

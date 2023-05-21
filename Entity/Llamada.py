@@ -27,20 +27,22 @@ class Llamada:
     def verificarExistenciaDeRespuestas(self):
         return len(self._respuestasDeEncuesta) > 0
 
-    def mostrarDatos(self):
-        nombreCliente = self._cliente.getNombre()
-        for cambioEstado in self._cambioEstado:
-            if (cambioEstado.esActivo()):  # todo Corregir algo en el Cambio Estado.!
-                estado = cambioEstado.getNombre()
-        duración = self.getDuracion()
-        respuestasDeEncuesta = self._respuestasDeEncuesta.mostrarDatosRTA()
-        encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
+    def mostrarDatos(self, llamada):
+        llamada.getNombreCliente().getNombre()
+        llamada._cambioEstado[0].esActivo()
+
+        #duración = self.getDuracion()
+        #respuestasDeEncuesta = self._respuestasDeEncuesta.mostrarDatosRTA()
+        #encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
 
     def getNombreCliente(self):
         return self._cliente
 
     def getDuracion(self):
         return self._duracion
+
+    #def buscarEstadoActual(self, llamada):
+    #   return self._cambioEstado.esActivo(llamada)
 
 def generarLlamada():
     desc = ['Ofrecimiento de reembolso o crédito para compensar cualquier cargo adicional.',

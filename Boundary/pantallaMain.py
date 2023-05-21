@@ -81,3 +81,7 @@ class PantallaConsultarEncuesta:
                 llamada_seleccionada = llamadasFiltradas[row_index]
                 mensaje = (f"Llamada seleccionado de: {llamada_seleccionada.getNombreCliente().getNombre()}")
                 sg.popup(mensaje, title='Selección exitosa')
+                self.tomarLlamadaSeleccionada(llamada_seleccionada)
+
+    def tomarLlamadaSeleccionada(self, llamada):
+        print(self.controlador.tomarLlamadaSele(llamada))

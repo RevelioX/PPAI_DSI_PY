@@ -16,7 +16,7 @@ class Estado:
         else:
             return False
 
-    def getNombre(self):
+    def getNombreEstado(self):
         return self._nombre
 
 def obtenerEstado():
