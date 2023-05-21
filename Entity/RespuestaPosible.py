@@ -20,7 +20,7 @@ class RespuestaPosible:
         self._valor = valor
 
     def mostrarDatos(self):
-        return (self.getDescripcion(), self.getValor())
+        return self.getDescripcion()
 
 
 def obtenerRespuesta():

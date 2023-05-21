@@ -28,11 +28,17 @@ class Llamada:
         return len(self._respuestasDeEncuesta) > 0
 
     def mostrarDatos(self):
-        self.getNombreCliente().getNombre()
-        self._cambioEstado[0].esActivo()
-        self.getDuracion()
+        nombre = self.getNombreCliente().getNombre()
+        estado = self._cambioEstado[0].esActivo()
+        duracion = self.getDuracion()
+        datosRTA = []
         for i in self._respuestasDeEncuesta:
-            i.mostrarDatosRTA()
+            rta = i.mostrarDatosRTA()
+            pgunta = i.mostrarPregunta()
+            encuesta = i.mostrarEncuesta()
+            datosRTA.append(rta,pgunta,encuesta)
+        return(nombre, estado, duracion, datosRTA)
+
         #encuesta =  self._respuestasDeEncuesta.mostrarEncuesta() #Aca creo que es donde ya esta mal, y hay que asociar.
 
 

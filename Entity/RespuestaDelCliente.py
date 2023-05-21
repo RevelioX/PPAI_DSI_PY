@@ -28,6 +28,17 @@ class RespuestaDelCliente:
     def mostrarDatosRTA(self):
         return self._respuestaSeleccionada.mostrarDatos()
 
+    def buscarPregunta(self):
+        pass
+
+    def mostrarPregunta(self):
+        pregunta = self.buscarPregunta()
+        return pregunta.getDescripcion()
+
+    def mostrarEncuesta(self):
+        pregunta = self.buscarPregunta() #todo
+        return pregunta.mostrarEncuesta()
+
 
 def respuesEncuesta():
     nroRandom = random.randint(0, 1)
