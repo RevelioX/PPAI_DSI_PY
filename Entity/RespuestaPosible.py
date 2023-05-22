@@ -27,7 +27,7 @@ class RespuestaPosible:
         return pregunta.getDescripcion()
 
     def mostrarEncuesta(self):
-        pregunta = self.buscarPregunta() #todo
+        pregunta = self.buscarPregunta()
         return pregunta.mostrarEncuesta()
 
     def buscarPregunta(self):

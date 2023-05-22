@@ -123,4 +123,7 @@ class PantallaConsultarEncuesta:
             elif event == '-TABLE-':
                 row_index = values['-TABLE-'][0]
                 sg.popup("¿Desea Generar un CSV?")
-                self.controlador.generarCSV(datos)
+                self.opcionGenerarCSV(datos)
+
+    def opcionGenerarCSV(self, datos):
+         self.controlador.generarCSVSeleccionado(datos)
