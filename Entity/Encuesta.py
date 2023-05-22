@@ -1,6 +1,4 @@
 import datetime
-import random
-
 from Entity import Pregunta
 
 
@@ -17,10 +15,6 @@ class Encuesta:
             else:
                 return False
 
-       # def mostrarEncuesta(self):
-       #     print(self.getDescripcionEncuesta())
-       #     print(self.getPreguntas())
-       #     print(self.getfechaFinVigencia())
 
         def getDescripcionEncuesta(self):
             return self._descripcion
@@ -37,10 +31,4 @@ nomEncuestas = ['Encuesta de satisfaccion', 'Encuesta de calidad', 'Encuesta de 
 def generarEncuestaAleatoria():
 
     encuestas = [Encuesta("Soy la Encuesta 1", datetime.date(2023, 0o5, 0o6),Pregunta.generarPreguntasAleatorias(3))]
-    #for i in range(3):
-        #descripcion = nomEncuestas[i]
-        #current_year = datetime.datetime.now().year
-        #fechaFinVigenciate = datetime.date(random.randint(current_year, (current_year + 10)), random.randint(1, 12), random.randint(1, 28))
-        #pregunta = Pregunta.generarPreguntasAleatorias(3)
-        #encuestas.append(Encuesta(pregunta, fechaFinVigenciate, descripcion))
     return encuestas

@@ -14,8 +14,6 @@ class Cliente:
         return True
 
 
-
-
 def crearCliente():
     nombres = ["Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "Elijah", "Charlotte", "William",
                "Sophia", "James", "Amelia", "Benjamin", "Isabella", "Lucas", "Mia", "Henry", "Harper",
@@ -24,7 +22,6 @@ def crearCliente():
                  "Moore", "Taylor", "Anderson", "Thomas", "Jackson", "White", "Harris", "Clark", "Lewis", "Walker",
                  "Hall", "Young", "King", "Scott", "Green", "Adams", "Baker"]
     v_clientes = []
-    i = 0
     for i in range(20):
         nombreCompleto = random.choice(nombres) + " " + random.choice(apellidos)
         dni = random.randint(3000000, 50000000)

@@ -20,7 +20,7 @@ class PantallaConsultarEncuesta:
         self.habilitar()
 
     def habilitar(self):
-        layout_consulta = [[sg.Button('Consultar Encuesta', size=(18, 1), pad=((70, 3), 10))]]
+        layout_consulta = [[sg.Button('Consultar Encuesta', size=(18, 1), pad=((70, 3), 20))]]
         window_consulta = sg.Window('Consultar Encuesta''', layout_consulta, size=(300, 100))
 
         while True:
@@ -55,32 +55,43 @@ class PantallaConsultarEncuesta:
                 self.controlador.tomarPeriodo(date_from, date_to)
 
     def mostrarLlamadas(self, llamadasFiltradas):
-        layout_llamada = [
-            [sg.Table(
-                values=[["Llamada de " + llamada.getNombreCliente().getNombre()] for llamada in llamadasFiltradas],
-                headings=['Cliente'],
-                auto_size_columns=True,
-                display_row_numbers=True,
-                justification='left',
-                num_rows=10,
-                key='-TABLE-',
-                enable_events=True,
-                select_mode=sg.TABLE_SELECT_MODE_BROWSE)],
+        if len(llamadasFiltradas) > 0:
+            layout_llamada = [
+                [sg.Table(
+                    values=[["Llamada de " + llamada.getNombreCliente().getNombre()] for llamada in llamadasFiltradas],
+                    headings=['Cliente'],
+                    auto_size_columns=True,
+                    display_row_numbers=True,
+                    justification='left',
+                    num_rows=10,
+                    key='-TABLE-',
+                    enable_events=True,
+                    select_mode=sg.TABLE_SELECT_MODE_BROWSE)],
 
-            [sg.Button('Cerrar')]
-        ]
-        window_llamadas = sg.Window('Lista Llamada''', layout_llamada)
-        while True:
-            event, values = window_llamadas.read()
-            if event == sg.WINDOW_CLOSED or event == 'Cerrar':
-                window_llamadas.close()
-                break
-            elif event == '-TABLE-':
-                row_index = values['-TABLE-'][0]
-                llamada_seleccionada = llamadasFiltradas[row_index]
-                mensaje = (f"Llamada seleccionado de: {llamada_seleccionada.getNombreCliente().getNombre()}")
-                sg.popup(mensaje, title='Selección exitosa')
-                self.tomarSeleccion(llamada_seleccionada)
+                [sg.Button('Cerrar')]
+            ]
+            window_llamadas = sg.Window('Lista Llamada''', layout_llamada)
+            while True:
+                event, values = window_llamadas.read()
+                if event == sg.WINDOW_CLOSED or event == 'Cerrar':
+                    window_llamadas.close()
+                    break
+                elif event == '-TABLE-':
+                    row_index = values['-TABLE-'][0]
+                    llamada_seleccionada = llamadasFiltradas[row_index]
+                    mensaje = (f"Llamada seleccionado de: {llamada_seleccionada.getNombreCliente().getNombre()}")
+                    sg.popup(mensaje, title='Selección exitosa')
+                    self.tomarSeleccion(llamada_seleccionada)
+        else:
+            layout = [[sg.Text('¡No se encontraron llamadas para esas fechas!', size=(40, 1), justification='center')],
+            [sg.Button('Cerrar')]]
+            window_error = sg.Window('ERROR!', layout,size=(300, 100))
+
+            while True:
+                event, _ = window_error.read()
+                if event == sg.WINDOW_CLOSED or event == 'Cerrar':
+                    break
+            window_error.close()
 
     def tomarSeleccion(self, llamada):
         self.controlador.llamadaSeleccion(llamada)
@@ -113,4 +124,3 @@ class PantallaConsultarEncuesta:
                 row_index = values['-TABLE-'][0]
                 sg.popup("¿Desea Generar un CSV?")
                 self.controlador.generarCSV(datos)
-

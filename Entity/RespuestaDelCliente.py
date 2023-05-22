@@ -35,15 +35,12 @@ class RespuestaDelCliente:
         return self._respuestaSeleccionada.mostrarEncuesta()
 
 
-
-
-
 def respuesEncuesta():
     nroRandom = random.randint(0, 1)
     respuestasV = []
     if nroRandom != 0:
         for i in range(20):
-            anio_aleatorio = random.randint(2000, 2023)
+            anio_aleatorio = random.randint(2015, 2023)
             mes_aleatorio = random.randint(1, 12)
             dia_aleatorio = random.randint(1, 29)
             respuesta = RespuestaPosible.obtenerRespuestaCliente()

@@ -38,7 +38,4 @@ def generarPreguntasAleatorias(cantidadPreguntas):
         pregunta._pregunta = preguntasRandom[i-1]
         pregunta._respuestasPosibles.append(RespuestaPosible.obtenerRespuestaCliente())
         preguntas.append(pregunta)
-
-    #print('Preguntas generadas con éxito')
-
     return preguntas

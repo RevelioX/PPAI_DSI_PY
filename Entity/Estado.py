@@ -1,4 +1,5 @@
 import random
+
 class Estado:
 
     def __init__(self, nombre):

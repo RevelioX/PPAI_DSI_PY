@@ -1,5 +1,4 @@
 import random
-
 from Entity import Cliente, CambioEstado, RespuestaDelCliente
 
 
@@ -13,7 +12,7 @@ class Llamada:
         self._encuestaEnviada = encuestaEnviada
         self._observacionAuditor = observacionAuditor
         self._respuestasDeEncuesta = respuestasDeEncuesta
-        self._cambioEstado = cambioEstado  # todo Recordar Agregar el Primer Cambio de Estado
+        self._cambioEstado = cambioEstado
         self._accionRequerida = []
         self._cliente = cliente
         self._operador = []
@@ -21,7 +20,7 @@ class Llamada:
         self._subOpcionSeleccionada = []
         self._opcionSeleccionada = []
 
-    def verificarPeriodo(self, fechaInicio, fechaFin):  # todo
+    def verificarPeriodo(self, fechaInicio, fechaFin):
         return self._cambioEstado[0].esDelPeriodo(fechaInicio, fechaFin)
 
     def verificarExistenciaDeRespuestas(self):
