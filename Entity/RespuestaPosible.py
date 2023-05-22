@@ -34,6 +34,7 @@ class RespuestaPosible:
         preguntasAleatorias = Pregunta.generarPreguntasAleatorias(3)
         for i in preguntasAleatorias:
             if self._descripcion in i.listarRespuestasPosibles():
+                print(i)
                 return i
 
 
@@ -44,5 +45,6 @@ def obtenerRespuestaCliente():
     valoresGenerales = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     valor = random.choice(valoresGenerales)
 
-    respuesta = RespuestaPosible(descripcion, valor)
+    #respuesta = RespuestaPosible(descripcion, valor)
+    respuesta = RespuestaPosible("Al Usuario le gustan las milanesas",4)
     return respuesta

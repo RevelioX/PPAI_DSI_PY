@@ -5,7 +5,7 @@ from Entity import Pregunta
 
 
 class Encuesta:
-        def __init__(self,pregunta=None, fechaFinVigencia='',descripcion=''):
+        def __init__(self,descripcion,fechaFinVigencia,pregunta):
             self._descripcion = descripcion
             self._fechaFinVigencia = fechaFinVigencia
             self._pregunta = pregunta
@@ -35,11 +35,12 @@ nomEncuestas = ['Encuesta de satisfaccion', 'Encuesta de calidad', 'Encuesta de 
     'Encuesta de producto', 'Encuesta de atencion al cliente', 'Encuesta de atencion al publico']
 
 def generarEncuestaAleatoria():
-    encuestas = []
-    for i in range(3):
-        descripcion = nomEncuestas[i]
-        current_year = datetime.datetime.now().year
-        fechaFinVigenciate = datetime.date(random.randint(current_year, (current_year + 10)), random.randint(1, 12), random.randint(1, 28))
-        pregunta = Pregunta.generarPreguntasAleatorias(3)
-        encuestas.append(Encuesta(pregunta, fechaFinVigenciate, descripcion))
+
+    encuestas = [Encuesta("Soy la Encuesta 1", datetime.date(2023, 0o5, 0o6),Pregunta.generarPreguntasAleatorias(3))]
+    #for i in range(3):
+        #descripcion = nomEncuestas[i]
+        #current_year = datetime.datetime.now().year
+        #fechaFinVigenciate = datetime.date(random.randint(current_year, (current_year + 10)), random.randint(1, 12), random.randint(1, 28))
+        #pregunta = Pregunta.generarPreguntasAleatorias(3)
+        #encuestas.append(Encuesta(pregunta, fechaFinVigenciate, descripcion))
     return encuestas
