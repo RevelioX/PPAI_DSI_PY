@@ -19,9 +19,10 @@ class Pregunta:
 
     def buscarEncuesta(self):
         encuestas = Encuesta.generarEncuestaAleatoria()
+
         for i in encuestas:
             for j in i.getPreguntas():
-                if self == j:
+                if self._pregunta == j._pregunta:
                     return i
 
     def mostrarEncuesta(self):
@@ -38,6 +39,6 @@ def generarPreguntasAleatorias(cantidadPreguntas):
         pregunta._respuestasPosibles.append(RespuestaPosible.obtenerRespuestaCliente())
         preguntas.append(pregunta)
 
-    print('Preguntas generadas con éxito')
+    #print('Preguntas generadas con éxito')
 
     return preguntas

@@ -1,5 +1,6 @@
 from datetime import datetime, time
-
+import csv
+import sys
 
 class ControladorConsultarEncuesta:
 
@@ -33,8 +34,16 @@ class ControladorConsultarEncuesta:
 
 
     def llamadaSeleccion(self,llamada):
-        return llamada.mostrarDatos()
+        self._pantallaConsultarEncuesta.mostrarLlamadaConEncuesta(llamada.mostrarDatos())
 
-    def generarCSV(self):
-        pass
+    def generarCSV(self, datos):
+        nombre_archivo_csv = "DatosCliente.csv"
 
+        with open(nombre_archivo_csv, "w", newline="") as file:
+            escritor_csv = csv.writer(file)
+            escritor_csv.writerow(["Nombre", "Estado", "Duracion", "Respuesta", "Pregunta", "Encuesta"])
+            escritor_csv.writerow([datos[0], datos[1], str(datos[2]), datos[3][0][0], datos[3][0][1], datos[3][0][2]])
+        self.FinCU()
+
+    def FinCU(self):
+        sys.exit()

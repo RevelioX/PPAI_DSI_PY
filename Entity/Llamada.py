@@ -37,7 +37,7 @@ class Llamada:
             pgunta = i.mostrarPregunta()
             encuesta = i.mostrarEncuesta()
             datosRTA.append((rta,pgunta,encuesta))
-        return(nombre, estado, duracion, datosRTA)
+        return nombre, estado, duracion, datosRTA
 
 
     def getNombreCliente(self):

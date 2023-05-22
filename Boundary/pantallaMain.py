@@ -1,5 +1,3 @@
-from Entity import Cliente
-from Controller import ControladorConsultarEncuesta as CC
 import PySimpleGUI as sg
 
 
@@ -52,23 +50,24 @@ class PantallaConsultarEncuesta:
             elif event_periodo == 'cal_to':
                 window_periodo['date_to'].update(values_periodo['cal_to'].strftime('%Y-%m-%d'), visible=True)
             elif event_periodo == 'Consultar':
-                date_from =(values_periodo['date_from'].split(" ")[0])
+                date_from = (values_periodo['date_from'].split(" ")[0])
                 date_to = (values_periodo['date_to'].split(" ")[0])
-                self.controlador.tomarPeriodo(date_from,date_to)
+                self.controlador.tomarPeriodo(date_from, date_to)
 
     def mostrarLlamadas(self, llamadasFiltradas):
         layout_llamada = [
-           [sg.Table(values=[["Llamada de " + llamada.getNombreCliente().getNombre()] for llamada in llamadasFiltradas],
-                     headings=['Cliente'],
-                     auto_size_columns=True,
-                     display_row_numbers=True,
-                     justification='left',
-                     num_rows=10,
-                     key='-TABLE-',
-                     enable_events=True,
-                     select_mode=sg.TABLE_SELECT_MODE_BROWSE)],
+            [sg.Table(
+                values=[["Llamada de " + llamada.getNombreCliente().getNombre()] for llamada in llamadasFiltradas],
+                headings=['Cliente'],
+                auto_size_columns=True,
+                display_row_numbers=True,
+                justification='left',
+                num_rows=10,
+                key='-TABLE-',
+                enable_events=True,
+                select_mode=sg.TABLE_SELECT_MODE_BROWSE)],
 
-           [sg.Button('Cerrar')]
+            [sg.Button('Cerrar')]
         ]
         window_llamadas = sg.Window('Lista Llamada''', layout_llamada)
         while True:
@@ -85,3 +84,33 @@ class PantallaConsultarEncuesta:
 
     def tomarSeleccion(self, llamada):
         self.controlador.llamadaSeleccion(llamada)
+
+    def mostrarLlamadaConEncuesta(self, datos):
+        respuesta = datos[3][0][0]
+        pregunta = datos [3][0][1]
+        encuesta = datos[3][0][2]
+        layout_llamada = [
+            [sg.Table(
+                values=[[datos[0], datos[1], datos[2], respuesta, pregunta, encuesta]],
+                headings=['Cliente', 'Estado', 'Duracion', "Respuesta", "Pregunta", "Encuesta"],
+                auto_size_columns=True,
+                display_row_numbers=True,
+                justification='left',
+                num_rows=10,
+                key='-TABLE-',
+                enable_events=True,
+                select_mode=sg.TABLE_SELECT_MODE_BROWSE)],
+
+            [sg.Button('Cerrar')],
+        ]
+        window_llamadas_seleccionada = sg.Window('Llamada Seleccionada''', layout_llamada)
+        while True:
+            event, values = window_llamadas_seleccionada.read()
+            if event == sg.WINDOW_CLOSED or event == 'Cerrar':
+                window_llamadas_seleccionada.close()
+                break
+            elif event == '-TABLE-':
+                row_index = values['-TABLE-'][0]
+                sg.popup("¿Desea Generar un CSV?")
+                self.controlador.generarCSV(datos)
+
