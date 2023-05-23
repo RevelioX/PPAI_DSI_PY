@@ -39,14 +39,14 @@ def respuesEncuesta():
     nroRandom = random.randint(0, 1)
     respuestasV = []
     if nroRandom != 0:
-        for i in range(20):
+        for i in range(1):
             anio_aleatorio = random.randint(2015, 2023)
             mes_aleatorio = random.randint(1, 12)
             dia_aleatorio = random.randint(1, 29)
             respuesta = RespuestaPosible.obtenerRespuestaCliente(1)
             fechaRandom = datetime(anio_aleatorio, mes_aleatorio, dia_aleatorio)
             respuestasV.append(RespuestaDelCliente(fechaRandom, respuesta))
-        for i in range(20):
+        for i in range(1):
             anio_aleatorio = random.randint(2015, 2023)
             mes_aleatorio = random.randint(1, 12)
             dia_aleatorio = random.randint(1, 29)
