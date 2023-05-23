@@ -28,7 +28,8 @@ class Encuesta:
 nomEncuestas = ['Encuesta de satisfaccion', 'Encuesta de calidad', 'Encuesta de servicio',
     'Encuesta de producto', 'Encuesta de atencion al cliente', 'Encuesta de atencion al publico']
 
-def generarEncuestaAleatoria():
+def generarEncuestaAleatoria(n = 1):
 
     encuestas = [Encuesta("Soy la Encuesta 1", datetime.date(2023, 0o5, 0o6),Pregunta.generarPreguntasAleatorias(3))]
+    encuestas.append(Encuesta("Soy la Encuesta 2",datetime.date(2023, 0o7, 0o3),Pregunta.generarPreguntasAleatorias(2)))
     return encuestas

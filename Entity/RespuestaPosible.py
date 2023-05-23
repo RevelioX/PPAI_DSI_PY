@@ -37,10 +37,9 @@ class RespuestaPosible:
                 return i
 
 
-def obtenerRespuestaCliente():
-    descripcionesGenerales = ['1 al 10', 'Si/No']
-    descripcion = random.choice(descripcionesGenerales)
-    valoresGenerales = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    valor = random.choice(valoresGenerales)
-    respuesta = RespuestaPosible("Al Usuario le gustan las milanesas",4)
+def obtenerRespuestaCliente(n = 1):
+    if n == 1:
+        respuesta = RespuestaPosible("Al Usuario le gustan las milanesas",4)
+    if n == 2:
+        respuesta = RespuestaPosible("El usuario es de Irlanda",3)
     return respuesta
