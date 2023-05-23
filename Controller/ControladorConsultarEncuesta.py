@@ -28,16 +28,15 @@ class ControladorConsultarEncuesta:
     def llamadaSeleccion(self,llamada):
         self._pantallaConsultarEncuesta.mostrarLlamadaConEncuesta(llamada.mostrarDatos())
 
-    def generarCSVSeleccionado(self, datos):
-        self.generarCSV(datos)
+    def generarCSVSeleccionado(self, datos_respuesta, dato):
+        self.generarCSV(datos_respuesta, dato)
 
-    def generarCSV(self, datos):
+    def generarCSV(self, datos_respuesta, datos):
         nombre_archivo_csv = "DatosCliente.csv"
-
         with open(nombre_archivo_csv, "w", newline="") as file:
             escritor_csv = csv.writer(file)
             escritor_csv.writerow(["Nombre", "Estado", "Duracion", "Respuesta", "Pregunta", "Encuesta"])
-            escritor_csv.writerow([datos[0], datos[1], str(datos[2]), datos[3][0][0], datos[3][0][1], datos[3][0][2]])
+            escritor_csv.writerow([datos[0], datos[1], str(datos[2]), datos_respuesta[0], datos_respuesta[1], datos_respuesta[2]])
         self.finCU()
 
     def finCU(self):

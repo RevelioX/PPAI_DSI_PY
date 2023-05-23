@@ -97,17 +97,11 @@ class PantallaConsultarEncuesta:
         self.controlador.llamadaSeleccion(llamada)
 
     def mostrarLlamadaConEncuesta(self, datos):
-        respuesta = datos[3][0][0]
-        pregunta = datos [3][0][1]
-        encuesta = datos[3][0][2]
-        print(datos[3])
-
         layout_llamada = [
             [sg.Text('Llamada:' + datos[0])],
             [sg.Text('Estado:' + datos[1])],
             [sg.Text('Duracion:' + str(datos[2]))],
             [sg.Table(
-                #["Llamada de " + llamada.getNombreCliente().getNombre()] for llamada in llamadasFiltradas]
                 values=[[str(dato[0]), str(dato[1]), str(dato[2])] for dato in datos[3]],
                 headings=["Respuesta", "Pregunta", "Encuesta"],
                 auto_size_columns=True,
@@ -128,8 +122,9 @@ class PantallaConsultarEncuesta:
                 break
             elif event == '-TABLE-':
                 row_index = values['-TABLE-'][0]
+                datos_respuesta = datos[3][row_index]
                 sg.popup("¿Desea Generar un CSV?")
-                self.opcionGenerarCSV(datos)
+                self.opcionGenerarCSV(datos_respuesta, datos)
 
-    def opcionGenerarCSV(self, datos):
-         self.controlador.generarCSVSeleccionado(datos)
+    def opcionGenerarCSV(self, datos_respuesta, datos):
+         self.controlador.generarCSVSeleccionado(datos_respuesta, datos)
