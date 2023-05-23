@@ -27,7 +27,7 @@ def obtenerFechaRandom():
     cambioV = []
     anio_aleatorio = random.randint(2015, 2023)
     mes_aleatorio = random.randint(1, 12)
-    dia_aleatorio = random.randint(1, 29)
+    dia_aleatorio = random.randint(1, 27)
     estado = Estado.obtenerEstado()
     fechaRandom = datetime(anio_aleatorio, mes_aleatorio, dia_aleatorio)
     cambioV.append(CambioEstado(fechaRandom, estado))
