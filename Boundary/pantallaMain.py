@@ -100,10 +100,16 @@ class PantallaConsultarEncuesta:
         respuesta = datos[3][0][0]
         pregunta = datos [3][0][1]
         encuesta = datos[3][0][2]
+        print(datos[3])
+
         layout_llamada = [
+            [sg.Text('Llamada:' + datos[0])],
+            [sg.Text('Estado:' + datos[1])],
+            [sg.Text('Duracion:' + str(datos[2]))],
             [sg.Table(
-                values=[[datos[0], datos[1], datos[2], respuesta, pregunta, encuesta]],
-                headings=['Cliente', 'Estado', 'Duracion', "Respuesta", "Pregunta", "Encuesta"],
+                #["Llamada de " + llamada.getNombreCliente().getNombre()] for llamada in llamadasFiltradas]
+                values=[[str(dato[0]), str(dato[1]), str(dato[2])] for dato in datos[3]],
+                headings=["Respuesta", "Pregunta", "Encuesta"],
                 auto_size_columns=True,
                 display_row_numbers=True,
                 justification='left',
