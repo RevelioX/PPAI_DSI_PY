@@ -33,10 +33,12 @@ preguntasRandom = ["Hola?","Telefono?","Bicicleta?"]
 
 def generarPreguntasAleatorias(cantidadPreguntas):
     preguntas = []
-    for i in range(1, cantidadPreguntas + 1):
-        pregunta = Pregunta()
-        pregunta._pregunta = preguntasRandom[i-1]
-        pregunta._respuestasPosibles.append(RespuestaPosible.obtenerRespuestaCliente(1))
-        pregunta._respuestasPosibles.append(RespuestaPosible.obtenerRespuestaCliente(2))
-        preguntas.append(pregunta)
+    pregunta = Pregunta()
+    pregunta._pregunta = preguntasRandom[1]
+    pregunta._respuestasPosibles.append(RespuestaPosible.obtenerRespuestaCliente(1))
+    preguntas.append(pregunta)
+    pregunta = Pregunta()
+    pregunta._pregunta = preguntasRandom[2]
+    pregunta._respuestasPosibles.append(RespuestaPosible.obtenerRespuestaCliente(2))
+    preguntas.append(pregunta)
     return preguntas
